@@ -9,7 +9,8 @@ BUILD_IMAGE := ghcr.io/rust-cross/rust-musl-cross:$(TARGET)
 
 # Docker run command
 #DOCKER_RUN := podman run --userns=keep-id --rm -v "$(PROJECT_DIR)":/home/rust/src -e CARGO_TARGET_DIR=/tmp/target $(BUILD_IMAGE)
-DOCKER_RUN := podman run --userns=keep-id --rm -v "$(PROJECT_DIR)":/home/rust/src $(BUILD_IMAGE)
+#DOCKER_RUN := podman run --userns=keep-id --rm -v "$(PROJECT_DIR)":/home/rust/src $(BUILD_IMAGE)
+DOCKER_RUN := podman run --rm -v "$(PROJECT_DIR)":/home/rust/src $(BUILD_IMAGE)
 
 .PHONY: build clean
 
